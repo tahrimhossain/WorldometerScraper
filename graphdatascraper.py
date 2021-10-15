@@ -47,7 +47,7 @@ def getConfirmedGraphData(countryName,body):
 	
 
 
-def storeGraphData(countryName,url):
+def storeGraphDataAndGetFlagURL(countryName,url):
 
 	options = webdriver.ChromeOptions()
 	options.headless = True
@@ -59,7 +59,7 @@ def storeGraphData(countryName,url):
 	mongoURL = secrets.read()
 	secrets.close()
 
-
+	
 	client = MongoClient(mongoURL)
 	database = client["covidDatabse"]
 	
@@ -79,6 +79,7 @@ def storeGraphData(countryName,url):
 		print("Fetched and updated Death Data for "+countryName+" successfully")	
 	except Exception as e:
 		print("---Couldn't update Death Data for "+countryName+"---")	
-		
+	
+	flag_url = driver.find_element_by_xpath("//html/body/div[3]/div[2]/div[1]/div/div[3]/h1/div/img").get_attribute('src')	
 	driver.quit()
-
+	return flag_url
