@@ -66,7 +66,7 @@ def storeGraphDataAndGetFlagURL(countryName,url):
 	
 	try:
 		print("Fetching Confirmed Data for "+countryName)
-		confirmedData = getConfirmedGraphData(countryName,driver.find_element_by_xpath('//html/body/div[4]/div[2]/div[1]/div[2]/div/script').get_attribute('innerText'))
+		confirmedData = getConfirmedGraphData(countryName,driver.find_element_by_xpath('//*[@id="graph-cases-daily"]/following-sibling::script').get_attribute('innerText'))
 		database.confirmedGraphData.replace_one({"_id":countryName},confirmedData,True)
 		print("Fetched and updated Confirmed Data for "+countryName+" successfully")
 	except Exception as e:
@@ -74,7 +74,7 @@ def storeGraphDataAndGetFlagURL(countryName,url):
 
 	try:
 		print("Fetching Death Data for "+countryName)
-		deathData = getDeathGraphData(countryName,driver.find_element_by_xpath('//html/body/div[4]/div[2]/div[1]/div[5]/div/script').get_attribute('innerText'))
+		deathData = getDeathGraphData(countryName,driver.find_element_by_xpath('//*[@id="graph-deaths-daily"]/following-sibling::script').get_attribute('innerText'))
 		database.deathGraphData.replace_one({"_id":countryName},deathData,True)
 		print("Fetched and updated Death Data for "+countryName+" successfully")	
 	except Exception as e:
