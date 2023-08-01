@@ -15,7 +15,7 @@ def getWorldWide(table_data):
 	else:
 		world_wide_total_cases = int(world_wide_total_cases.replace(',',''))
 
-	if world_wide_new_cases == "N/A" or len(world_wide_new_cases) == 0:
+	if world_wide_new_cases == "N/A" or len(world_wide_new_cases) == 0 or world_wide_new_cases == "0":
 		world_wide_new_cases = 0
 	else:
 		world_wide_new_cases = 	int(world_wide_new_cases.split('+')[1].replace(',',''))
@@ -25,17 +25,17 @@ def getWorldWide(table_data):
 	else:
 		world_wide_total_deaths = int(world_wide_total_deaths.replace(',',''))
 
-	if world_wide_new_deaths == "N/A" or len(world_wide_new_deaths) == 0:
+	if world_wide_new_deaths == "N/A" or len(world_wide_new_deaths) == 0 or world_wide_new_deaths == "0":
 		world_wide_new_deaths = 0
 	else:
-		world_wide_new_deaths = 	int(world_wide_new_deaths.split('+')[1].replace(',',''))
+		world_wide_new_deaths = int(world_wide_new_deaths.split('+')[1].replace(',',''))
 
 	if world_wide_total_recovered == "N/A" or len(world_wide_total_recovered) == 0:
 		world_wide_total_recovered = 0
 	else:
 		world_wide_total_recovered = int(world_wide_total_recovered.replace(',',''))
 
-	if world_wide_new_recovered == "N/A" or len(world_wide_new_recovered) == 0:
+	if world_wide_new_recovered == "N/A" or len(world_wide_new_recovered) == 0 or world_wide_new_recovered == "0":
 		world_wide_new_recovered = 0
 	else:
 		world_wide_new_recovered = 	int(world_wide_new_recovered.split('+')[1].replace(',',''))
